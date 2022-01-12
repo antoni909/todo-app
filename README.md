@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+<h1 align="center">Welcome to todo_app 👋</h1>
+<p>
+  <a href="https://www.npmjs.com/package/todo_app" target="_blank">
+    <img alt="Version" src="https://img.shields.io/npm/v/todo_app.svg">
+  </a>
+  <a href="https://github.com/antoni909/todo-app" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A Web Application for securely managing a To Do List
 
-## Available Scripts
+### 🏠 [Homepage](https://github.com/antoni909/todo-app)
 
-In the project directory, you can run:
+### ✨ [Demo](https://antoni909.github.io/todo-app/)
 
-### `npm start`
+## Business Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Development Process, Milestones
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Phase 1 : [Basic To Do List Management, using Hooks](./src/assets/TechReqs.md##Phase-1)
+- Phase 2 : [Persistence](./src/assets/TechReqs.md##Phase-2)
+- Phase 3 : [Settings and Global Context](./src/assets/TechReqs.md##Phase-3)
+- Phase 4 : [Authorization](./src/assets/TechReqs.md##Phase-4)
 
-### `npm test`
+## Technical Requirements
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application will be created with the following overall architecture and methodologies
 
-### `npm run build`
+React
+ES6 Classes
+Settings delivered to the application using Context
+User Login & Permissions delivered to the application using Context
+Local Storage / Cookies for storing login status
+Local Storage / Cookies for storing user preferences
+Superagent or Axios for performing API Requests
+React Bootstrap for styling
+Test Driven Development, using Jest
+Tests will be runnable locally
+Deployment to cloud provider
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+npm install
+```
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+npm run start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Run tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+npm run test
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
+👤 **antoni909**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Website: https://github.com/antoni909
+* Github: [@antoni909](https://github.com/antoni909)
+* LinkedIn: [Lorenzo Ortega](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/lorenzo-ortega-antoni\/?lipi=urn%3Ali%3Apage%3Ad\_flagship3\_feed%3BsyJB6V7eSCSBeru5Dhlg6Q%3D%3D)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🤝 Contributing
 
-### Code Splitting
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/antoni909/todo-app/issues). You can also take a look at the [contributing guide](https://github.com/antoni909/todo-app/issues).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Show your support
 
-### Analyzing the Bundle Size
+Give a ⭐️ if this project helped you!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
