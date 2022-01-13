@@ -8,8 +8,6 @@ import Todo from './components/Todo'
 import Footer from './components/Footer'
 import Layout from './components/Layout'
 
-
-
 function App() {
 
   const [settings, setSettings] = useState({
@@ -34,11 +32,11 @@ function App() {
     <SettingsContext.Provider value={{settings, setSettings}} >
 
         <Layout>
-          <Header />
             <Container maxWidth="lg"align="center">
+              <Header />
               <Todo />
+              <Footer />
             </Container>
-          <Footer />
         </Layout>
 
     </SettingsContext.Provider>
