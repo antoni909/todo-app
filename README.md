@@ -19,14 +19,21 @@
 
 ## Business Requirements
 
-## Development Process, Milestones
+### Documentation
+
+Describe how global state is consumed by the components
+
+Describe the operation of the hook: useForm()
+
+
+### Development Process, Milestones
 
 - Phase 1 : [Basic To Do List Management, using Hooks](./src/assets/TechReqs.md##Phase-1)
 - Phase 2 : [Persistence](./src/assets/TechReqs.md##Phase-2)
 - Phase 3 : [Settings and Global Context](./src/assets/TechReqs.md##Phase-3)
 - Phase 4 : [Authorization](./src/assets/TechReqs.md##Phase-4)
 
-## Technical Requirements
+### Technical Requirements
 
 The application will be created with the following overall architecture and methodologies
 
