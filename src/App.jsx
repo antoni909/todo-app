@@ -8,7 +8,8 @@ function App() {
   const [settings, setSettings] = useState({
     list: [],
     displayItems: false,
-    itemsPerScreen: 0,
+    maxDisplay: 3,
+    page: 1,
     incomplete: [],
     sort: 0,
     theme: 'dark'
