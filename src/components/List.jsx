@@ -19,14 +19,13 @@ const List = () => {
     })
   }
 
-  const startIdx = (settings.page - 1)*settings.maxDisplay
-  
-  const sliceList = settings.list.slice(startIdx, startIdx+ settings.maxDisplay);
+  const startIdx = (settings.pageNumber - 1) * settings.maxDisplay
+  const sliceList = settings.list.slice(startIdx, startIdx + settings.maxDisplay);
+
+
   return (
     <>
       {
-
-        // setting.list.map((item,idx) => (
         sliceList.map((item,idx) => (
         <Container 
           key={idx}

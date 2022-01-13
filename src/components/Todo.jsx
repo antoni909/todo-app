@@ -4,7 +4,6 @@ import { SettingsContext } from '../contexts/settings';
 import List from './List'
 import useForm from '../hooks/form'
 import Paginate from '../components/Pagination'
-
 import { v4 as uuidv4 } from 'uuid';
 
 const Todo = () => {
@@ -12,7 +11,7 @@ const Todo = () => {
   const {settings, setSettings,} = useContext(SettingsContext)
 
   const { handleChange, handleSubmit } = useForm(addItem)
-  
+
   function addItem(item){
 
     item.id = uuidv4()

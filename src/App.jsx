@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Container from '@mui/material/Container';
 import Todo from './components/Todo'
+
 import { SettingsContext } from './contexts/settings'
 
 function App() {
@@ -9,13 +10,14 @@ function App() {
     list: [],
     displayItems: false,
     maxDisplay: 3,
-    page: 1,
+    pageNumber: 1,
     incomplete: [],
     sort: 0,
-    theme: 'dark'
+    theme: 'light'
   })
 
   return (
+
     <SettingsContext.Provider value={{settings, setSettings}} >
       <Container 
         maxWidth="lg"
