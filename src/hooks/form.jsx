@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const useForm = (cb) => {
+
   const [values, setValues] =useState({})
 
   const handleSubmit = (e) => {
@@ -10,15 +11,12 @@ const useForm = (cb) => {
 
   const handleChange = (e) => {
     e.persist()
-    console.log(`...${values}, [${e.target.name}]: ${e.target.value} `)
-    console.log('values', ...values)
     setValues(
-      
       values => ({...values, [e.target.name]: e.target.value})
     )
   }
 
-  return {handleChange, handleSubmit, values}
+  return {handleChange, handleSubmit}
 }
 
 export default useForm;

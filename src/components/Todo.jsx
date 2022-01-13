@@ -1,52 +1,55 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
+import { SettingsContext } from '../contexts/settings';
+
+import List from './List'
 import useForm from '../hooks/form'
+
 import { v4 as uuidv4 } from 'uuid';
 
 const Todo = () => {
-  
-  const [list,setList] = useState([])
-  const [incomplete, setIncomplete] = useState([])
+
+  const {settings, setSettings,} = useContext(SettingsContext)
+
   const { handleChange, handleSubmit } = useForm(addItem)
   
   function addItem(item){
-    console.log('**addItem')
+
     item.id = uuidv4()
     item.complete = false
-    console.log('...list',[...list])
-    setList([...list,item])
-    console.log('[...list,item]',[...list,item])
+    setSettings({
+      ...settings,
+      list: [...settings.list,item],
+    })
   }
 
   function deleteItem(id){
-    const items = list.filter( item => item.id !== id )
-    setList(items)
+    const items = settings.list( item => item.id !== id )
+    setSettings({
+      ...settings, 
+      list: [...settings.list,items]
+    })
   }
 
-  function toggleComplete(id){
+  useEffect(()=> {
 
-    const items = list.map( item => {
-      if( item.id === id )item.complete = !item.complete
-      return item
-    } )
-    setList(items)
-  }
-
-  useEffect(()=>{
-    let incompleteCount = list.filter(item =>!item.complete).length
-    setIncomplete(incompleteCount)
-    document.title = `Todo List: ${incomplete} `
-  }, [list,incomplete])
+    let incompleteCount = settings.list.filter(item => !item.complete).length
+    setSettings({...settings,incompleteCount})
+    document.title = `Todo List: ${settings.incomplete}`
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[settings.list])
 
   return (
     <>
-      <header>
-        <h1>
-          Todo List
-        </h1>
-        <h2>
-          {incomplete} items pending
-        </h2>
-      </header>
+        <header>
+          <h1>
+            Todo List
+          </h1>
+          <h2>
+            {settings.incomplete} items pending
+          </h2>
+        </header>
+        <>theme is: {settings.theme}</>
+      <hr />
       <form onSubmit={handleSubmit}>
         <h2>Add Todo Item</h2>
         
@@ -73,7 +76,7 @@ const Todo = () => {
           <input 
             onChange={handleChange}
             name="difficulty"
-            defaultValue="3"
+            defaultValue={3}
             type="range"
             min="1"
             max="5"
@@ -83,17 +86,8 @@ const Todo = () => {
           <button type="submit">Add Item</button>
         </label>
       </form>
-      {list.map(item => (
-        <div key={item.id}>
-          <p>{item.text}</p>
-          <p><smal>Assigned to: {item.assignee}</smal>Difficulty: {item.difficulty}</p>
-          <p></p>
-          <div onClick={()=>toggleComplete(item.id)}>
-            Complete: {item.complete.toString()}
-          </div>
-          <hr />
-        </div>
-      ))}
+      <hr />
+      <List />
     </>
   )
 }
