@@ -3,7 +3,7 @@ import { SettingsContext } from '../contexts/settings';
 
 import List from './List'
 import useForm from '../hooks/form'
-
+import Paginate from '../components/Pagination'
 import { v4 as uuidv4 } from 'uuid';
 
 const Todo = () => {
@@ -11,7 +11,7 @@ const Todo = () => {
   const {settings, setSettings,} = useContext(SettingsContext)
 
   const { handleChange, handleSubmit } = useForm(addItem)
-  
+
   function addItem(item){
 
     item.id = uuidv4()
@@ -31,9 +31,8 @@ const Todo = () => {
   }
 
   useEffect(()=> {
-
     let incompleteCount = settings.list.filter(item => !item.complete).length
-    setSettings({...settings,incompleteCount})
+    setSettings({...settings,incomplete: incompleteCount})
     document.title = `Todo List: ${settings.incomplete}`
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[settings.list])
@@ -45,7 +44,7 @@ const Todo = () => {
             Todo List
           </h1>
           <h2>
-            {settings.incomplete} items pending
+          items pending {settings.incomplete}
           </h2>
         </header>
         <>theme is: {settings.theme}</>
@@ -88,6 +87,7 @@ const Todo = () => {
       </form>
       <hr />
       <List />
+      <Paginate />
     </>
   )
 }
