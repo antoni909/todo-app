@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { SettingsContext } from '../contexts/settings';
 import Button from '@mui/material/Button';
-import Pagination from '@mui/material/Pagination';
+// import Pagination from '@mui/material/Pagination';
 
 const Paginate = () => {
 

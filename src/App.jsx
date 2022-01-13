@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { SettingsContext } from './contexts/settings'
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@material-ui/core'
 
 import Header from './components/Header'
 import Todo from './components/Todo'
