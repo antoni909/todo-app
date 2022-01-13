@@ -4,6 +4,7 @@ import { SettingsContext } from '../contexts/settings';
 import List from './List'
 import useForm from '../hooks/form'
 import Paginate from '../components/Pagination'
+
 import { v4 as uuidv4 } from 'uuid';
 
 const Todo = () => {
@@ -39,18 +40,9 @@ const Todo = () => {
 
   return (
     <>
-        <header>
-          <h1>
-            Todo List
-          </h1>
-          <h2>
-          items pending {settings.incomplete}
-          </h2>
-        </header>
-        <>theme is: {settings.theme}</>
-      <hr />
+      <br></br>
       <form onSubmit={handleSubmit}>
-        <h2>Add Todo Item</h2>
+        <h2>Todo's pending: {settings.incomplete}</h2>
         
         <label>
           <span>Todo Item</span>
@@ -77,6 +69,7 @@ const Todo = () => {
             name="difficulty"
             defaultValue={3}
             type="range"
+            step="1"
             min="1"
             max="5"
           />
@@ -85,8 +78,9 @@ const Todo = () => {
           <button type="submit">Add Item</button>
         </label>
       </form>
-      <hr />
+      <br></br>
       <List />
+      <br></br>
       <Paginate />
     </>
   )
