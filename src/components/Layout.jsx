@@ -66,6 +66,11 @@ const Layout = ({children}) => {
       path: <Link style={{ textDecoration: 'none' }} to="/todos">Todos</Link>,
     },
     {
+      text: 'Settings',
+      icon: <FormatListNumbered color="secondary"/>,
+      path: <Link style={{ textDecoration: 'none' }} to="/settings">Settings</Link>,
+    },
+    {
       text: 'NoMatch',
       icon: <ErrorOutline color="secondary"/>,
       path: <Link style={{ textDecoration: 'none' }} to="/catchall">Nothing Here</Link>
