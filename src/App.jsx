@@ -1,45 +1,22 @@
-import React, { useState } from 'react'
-import { SettingsContext } from './contexts/settings'
-import Container from '@mui/material/Container';
+import { Routes, Route } from 'react-router-dom';
 
-import Header from './components/Header'
-import Todo from './components/Todo'
-import Footer from './components/Footer'
+import Home from './components/Home'
+import Main from './components/Main'
+import NoMatch from './components/NoMatch'
 import Layout from './components/Layout'
 
-function App() {
-
-  const [settings, setSettings] = useState({
-    list: [],
-    displayItems: false,
-    maxDisplay: 3,
-    pageNumber: 1,
-    incomplete: [],
-    sort: 0,
-    theme: 'light'
-  })
-
-  /* 
-    for pages/components
-    <Grid container>
-      <Grid item xs={12} md={6} lg={4} >
-        <Paper> {note} </Paper>
-      </Grid>
-    </Grid>
-  */
-  return (
-    <SettingsContext.Provider value={{settings, setSettings}} >
-
-        <Layout>
-            <Container maxWidth="lg"align="center">
-              <Header />
-              <Todo />
-              <Footer />
-            </Container>
-        </Layout>
-
-    </SettingsContext.Provider>
-  );
+const App = () => {
+  return(
+    <div>
+      <Routes>
+        <Route path="/" element={<Layout />} >
+          <Route index element={<Home />} />
+          <Route path="todos" element={<Main />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
+    </div>
+    )
 }
 
 export default App;

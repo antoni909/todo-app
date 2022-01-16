@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from 'react'
 import { SettingsContext } from '../contexts/settings';
+import useForm from '../hooks/form'
+import { v4 as uuidv4 } from 'uuid';
 
 import List from './List'
-import useForm from '../hooks/form'
 import Paginate from '../components/Pagination'
-
-import { v4 as uuidv4 } from 'uuid';
 
 const Todo = () => {
 
@@ -14,7 +13,6 @@ const Todo = () => {
   const { handleChange, handleSubmit } = useForm(addItem)
 
   function addItem(item){
-
     item.id = uuidv4()
     item.complete = false
     setSettings({

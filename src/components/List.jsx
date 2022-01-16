@@ -6,26 +6,20 @@ import { SettingsContext } from '../contexts/settings';
 const List = () => {
 
   const {settings, setSettings} = useContext(SettingsContext)
-
+  const startIdx = (settings.pageNumber - 1) * settings.maxDisplay
+  const sliceList = settings.list.slice(startIdx, startIdx + settings.maxDisplay);
+  
   function toggleComplete(id){
-
     const items = settings.list.map( item => {
       if( item.id === id )item.complete = !item.complete
       return item
     })
-    setSettings({
-      ...settings, 
-      items
-    })
+    setSettings({...settings, items})
   }
-
-  const startIdx = (settings.pageNumber - 1) * settings.maxDisplay
-  const sliceList = settings.list.slice(startIdx, startIdx + settings.maxDisplay);
 
   return (
     <>
-      {
-        sliceList.map((item,idx) => (
+      {sliceList.map((item,idx) => (
         <Container 
           key={idx}
           maxWidth="md"
@@ -49,3 +43,12 @@ const List = () => {
 }
 
 export default List;
+
+  /* 
+    for pages/components
+    <Grid container>
+      <Grid item xs={12} md={6} lg={4} >
+        <Paper> {note} </Paper>
+      </Grid>
+    </Grid>
+  */

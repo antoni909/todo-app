@@ -1,31 +1,30 @@
+import { Link, Outlet } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core'
-import AppBar from '@mui/material/AppBar';
 import Drawer from '@mui/material/Drawer';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@material-ui/core/Typography'
 
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import { HomeRounded, AssignmentInd } from '@mui/icons-material';
+import { HomeRounded, FormatListNumbered, ErrorOutline } from '@mui/icons-material';
 
-const drawerWidth = 240
+const drawerWidth = 260
 // function that returns an obj using theme arg
 const useStyles = makeStyles((theme)=> {
   return {
     active: {
       backgroundColor: '#f9f9f9',
     },
-    appbar: {
-      width: `calc(100% - ${drawerWidth}px)`, 
-    },
     button: {
       fontSize: 15,
-      backgroundColor: 'pink',
+      borderRadius: 10,
+      boxShadow: '5px 5px 2.5px 2px rgba(30, 203, 243, .3)',
+      backgroundColor: 'white',
       '&:hover':{
-        backgroundColor: 'violet'
-      }
+        backgroundColor: '#f11f11f11'
+      },
+      marginTop: '10px', 
     },
     drawer: {
       width: drawerWidth
@@ -33,60 +32,49 @@ const useStyles = makeStyles((theme)=> {
     drawerPaper: {
       width: drawerWidth
     },
-    logoName: {
-      flexGrow: 1,
-    },
     page: {
-      background: '#f9f9f9',
+      background: '#f11f11f11',
       width: '100%',
       borderRadius: 10,
-      boxShadow: '20px 20px 5px 2px rgba(30, 203, 243, .3)',
+      boxShadow: '5px 5px 2.5px 2px rgba(30, 203, 243, .3)',
     },
     root : {
       display: 'flex',
     },
     title: {
-      padding: theme.spacing(2)
+      padding: theme.spacing(3)
     },
-    toolbar: theme.mixins.toolbar,
+    // toolbar: theme.mixins.toolbar,
   }
 })
 
 const Layout = ({children}) => {
 
   const classes = useStyles()
-
+  // look into MenuItem for rendering Link components
+  // https://mui.com/components/menus/
+  // https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router?rq=1
   const menuList = [
     {
       text: 'Home',
       icon: <HomeRounded color="secondary"/>,
-      path: '/'
+      path: <Link style={{ textDecoration: 'none' }} to="/">Home</Link>,
     },
     {
-      text: 'About',
-      icon: <AssignmentInd color="secondary"/>,
-      path: '/about'
+      text: 'Main',
+      icon: <FormatListNumbered color="secondary"/>,
+      path: <Link style={{ textDecoration: 'none' }} to="/todos">Todos</Link>,
+    },
+    {
+      text: 'NoMatch',
+      icon: <ErrorOutline color="secondary"/>,
+      path: <Link style={{ textDecoration: 'none' }} to="/catchall">Nothing Here</Link>
     },
   ]
 
   return (
     <div className={classes.root}>
-
-      <AppBar
-        className={classes.appbar}
-        elevation={0}
-      >
-        <Toolbar>
-          <Typography className={classes.logoName}>
-            Todo App
-          </Typography>
-          <Typography>
-            Some User
-          </Typography>
-        </Toolbar>
-      </AppBar>
       <br />
-
       <Drawer
         className={classes.drawer}
         classes={{paper: classes.drawerPaper}}
@@ -98,26 +86,31 @@ const Layout = ({children}) => {
             className={classes.title}
             variant="h5"
           >
-            Todo App
+            Menu
           </Typography>
         </div>
 
         <List>
           {menuList.map(item => (
             <ListItem
-              button 
+              button
+              className={classes.button}
               key={item.text}
             >
-              <ListItemText primary={item.text} />
-              <ListItemIcon>{item.icon}</ListItemIcon>
+              {/* <ListItemText primary={item.text} /> */}
+              <ListItemText primary={item.path}/>
+              <ListItemIcon >{item.icon}</ListItemIcon>
+              <br />
             </ListItem>  
           ))}
         </List>
       </Drawer>
 
       <div className={classes.page}>
-        <div className={classes.toolbar}></div>
+        {/* <div className={classes.toolbar}></div> */}
         {children}
+        <br />
+        <Outlet />
       </div>
 
     </div>
