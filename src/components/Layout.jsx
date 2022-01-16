@@ -8,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import { HomeRounded, FormatListNumbered, ErrorOutline } from '@mui/icons-material';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const drawerWidth = 260
 // function that returns an obj using theme arg
@@ -67,7 +68,7 @@ const Layout = ({children}) => {
     },
     {
       text: 'Settings',
-      icon: <FormatListNumbered color="secondary"/>,
+      icon: <SettingsIcon color="secondary"/>,
       path: <Link style={{ textDecoration: 'none' }} to="/settings">Settings</Link>,
     },
     {
