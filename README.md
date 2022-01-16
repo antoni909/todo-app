@@ -17,6 +17,7 @@
 
 ### ✨ [Demo](https://antoni909.github.io/todo-app/)
 
+![UML]()
 ## Business Requirements
 
 ### Documentation
@@ -24,7 +25,6 @@
 Describe how global state is consumed by the components
 
 Describe the operation of the hook: useForm()
-
 
 ### Development Process, Milestones
 
