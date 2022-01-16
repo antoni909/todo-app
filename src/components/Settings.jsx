@@ -1,44 +1,40 @@
-import { useContext, useState } from 'react'
-import { SettingsContext } from '../contexts/settings';
+import { useState,useEffect } from 'react'
 
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
-import {  } from '@mui/icons-material';
 
 const Settings = () => {
 
-  const {settings, setSettings} = useContext(SettingsContext)
+  const getLocal = () => {
+    const saved = localStorage.getItem('defaults')
+    const savedVal = JSON.parse(saved)
+    console.log(savedVal)
+    return savedVal || {completedTodos: false, totalTodos:3}
+  }
 
-  const info = {totalTodos: 0,showCompleted: false}
-  const [updates, setUpdates] = useState(info)
+  const [defaults, setDefaults] = useState(getLocal)
+
+  useEffect(()=>{
+    localStorage.setItem('defaults', JSON.stringify(defaults))
+  },[defaults])
 
   return(
     <div>
       <h1>Update Your Settings:</h1>
- 
-      <div>Show Completed Todos:
       <div>
-        dont show<Switch onChange={()=> setUpdates({...updates,showCompleted: !updates.showCompleted}) } value={true} variant="contained"/>show
-      </div>
-
+      <h2>Show Completed Todos</h2>
+      dont show<Switch onChange={()=> setDefaults({...defaults,completedTodos: !defaults.completedTodos}) } value={true} variant="contained"/>show
       </div> 
-      <p>
+      <div>
         number of todos per page
         <Button
-          onClick={() => setUpdates({...updates,totalTodos: updates.totalTodos - 1})}
+          onClick={() => setDefaults({...defaults,totalTodos: defaults.totalTodos - 1})}
         > - </Button>
-        {updates.totalTodos}
+        {defaults.totalTodos}
         <Button
-          onClick={() => setUpdates({...updates,totalTodos: updates.totalTodos + 1})}
+          onClick={() => setDefaults({...defaults,totalTodos: defaults.totalTodos + 1})}
         > + </Button>
-      </p>
-      <p>
-        Default sort field - assignee //string
-      </p>
-      <p>
-        save the above updated settings to local storage
-          - form submit hanleUpdate
-      </p>
+      </div>
     </div>
   )
 }

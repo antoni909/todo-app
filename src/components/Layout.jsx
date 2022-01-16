@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme)=> {
     title: {
       padding: theme.spacing(3)
     },
-    // toolbar: theme.mixins.toolbar,
+    toolbar: theme.mixins.toolbar,
   }
 })
 
@@ -113,7 +113,7 @@ const Layout = ({children}) => {
       </Drawer>
 
       <div className={classes.page}>
-        {/* <div className={classes.toolbar}></div> */}
+        <div className={classes.toolbar}></div>
         {children}
         <br />
         <Outlet />
