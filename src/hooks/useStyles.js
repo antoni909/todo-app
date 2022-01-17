@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme)=> {
       },
       marginTop: '10px', 
     },
+    card: {
+      margin: '10px 10px 10px 10px',
+      paddingBottom: '10px',
+    },
     drawer: {
       width: drawerWidth
     },

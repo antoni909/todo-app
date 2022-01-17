@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-// import { makeStyles } from '@material-ui/core'
+
 import useStyles from '../hooks/useStyles'
 import Drawer from '@mui/material/Drawer';
 import Typography from '@material-ui/core/Typography'
@@ -74,7 +74,6 @@ const Layout = ({children}) => {
           ))}
         </List>
       </Drawer>
-
       <div className={classes.page}>
         <div className={classes.toolbar}></div>
         {children}
