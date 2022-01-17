@@ -12,9 +12,13 @@
 ## Business Requirements
 
 - resources used:
-local storage hook: 
+
+local storage hook:
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 https://blog.logrocket.com/using-localstorage-react-hooks/
+
+removing underline from Link:
+https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router?rq=1
 
 ### Documentation
 

@@ -17,7 +17,7 @@ const Layout = ({children}) => {
   const classes = useStyles()
   // look into MenuItem for rendering Link components
   // https://mui.com/components/menus/
-  // https://stackoverflow.com/questions/37669391/how-to-get-rid-of-underline-for-link-component-of-react-router?rq=1
+
   const menuList = [
     {
       text: 'Home',

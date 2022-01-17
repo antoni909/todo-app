@@ -10,7 +10,15 @@ import Container from '@mui/material/Container';
 
 const Settings = () => {
 
-  const [defaults, setDefaults] = useLocalStorage('defaults',{completedTodos: false, totalTodos:3})
+  const [defaults, setDefaults] = useLocalStorage('defaults',{
+    completedTodos: false, 
+    maxDisplay:3,
+    pageNumber: 1,
+    list: [],
+    incomplete: [],
+    sort: 0,
+    theme: 'light'
+  })
 
   const classes = useStyles()
 
@@ -40,14 +48,14 @@ const Settings = () => {
             <CardHeader title='Items per page'></CardHeader>
               <Button
                 className={classes.button}
-                onClick={() => setDefaults({...defaults,totalTodos: defaults.totalTodos - 1})}
+                onClick={() => setDefaults({...defaults,maxDisplay: defaults.maxDisplay - 1})}
                 size="small"
                 variant="outlined"
               > - </Button>
-              <span style={{margin: '20px'}}>{defaults.totalTodos}</span>
+              <span style={{margin: '20px'}}>{defaults.maxDisplay}</span>
               <Button
                 className={classes.button}
-                onClick={() => setDefaults({...defaults,totalTodos: defaults.totalTodos + 1})}
+                onClick={() => setDefaults({...defaults,maxDisplay: defaults.maxDisplay + 1})}
                 size="small"
                 variant="outlined"
               > + </Button>
