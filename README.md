@@ -1,15 +1,6 @@
-<h1 align="center">Welcome to todo_app 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/todo_app" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/todo_app.svg">
-  </a>
-  <a href="https://github.com/antoni909/todo-app" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-</p>
+[![pages-build-deployment](https://github.com/antoni909/todo-app/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/antoni909/todo-app/actions/workflows/pages/pages-build-deployment)
+
+<h1 align="center"> Welcome to Todo app 👋 </h1>
 
 > A Web Application for securely managing a To Do List
 
