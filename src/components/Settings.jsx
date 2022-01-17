@@ -1,5 +1,6 @@
-import { useState,useEffect } from 'react'
 import useStyles from '../hooks/useStyles'
+import {useLocalStorage} from '../hooks/localStorage'
+
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';
 import Card from '@mui/material/Card';
@@ -9,18 +10,9 @@ import Container from '@mui/material/Container';
 
 const Settings = () => {
 
-  const getLocal = () => {
-    const saved = localStorage.getItem('defaults')
-    const savedVal = JSON.parse(saved)
-    console.log(savedVal)
-    return savedVal || {completedTodos: false, totalTodos:3}
-  }
-  const classes = useStyles()
-  const [defaults, setDefaults] = useState(getLocal)
+  const [defaults, setDefaults] = useLocalStorage('defaults',{completedTodos: false, totalTodos:3})
 
-  useEffect(()=>{
-    localStorage.setItem('defaults', JSON.stringify(defaults))
-  },[defaults])
+  const classes = useStyles()
 
   return(
       <Container 
