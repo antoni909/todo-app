@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 
 import Header from './Header'
 import Todo from './Todo'
+// import Settings from './Settings'
 import Footer from './Footer'
 // import Layout from './Layout'
 
@@ -18,6 +19,9 @@ function Main() {
     sort: 0,
     theme: 'light'
   })
+
+  // function in your context that saves user preferences (for the above) to local storage.
+  // need to stringify state prior to saving to local storage, and parse it when retrieve it.
 
   return (
             <SettingsContext.Provider value={{settings, setSettings}} >

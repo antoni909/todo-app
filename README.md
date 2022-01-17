@@ -20,6 +20,11 @@
 ![UML]()
 ## Business Requirements
 
+- resources used:
+local storage hook: 
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+https://blog.logrocket.com/using-localstorage-react-hooks/
+
 ### Documentation
 
 Describe how global state is consumed by the components
