@@ -2,17 +2,15 @@
 import { useState } from 'react'
 
 const Login = () => {
-  // display login form or logout button if logged in
+  // const [login, logout ] = useContext(UserContext)
   const defaults = {username:'',password:''}
   const [target, setTarget] = useState(defaults)
   
   function handleSubmit(e){
     e.preventDefault()
     console.log(e.form)
-    //grab login function and pass args
     // login(target.username, target.password)
     setTarget({...defaults})
-    
   }
 
   const isAuthenticated = false
@@ -22,6 +20,7 @@ const Login = () => {
       {
         isAuthenticated
         ?<>
+          <h1>Logout Component</h1>
           <button 
             onClick={()=>(console.log('run global.logout()'))}
             type="submit">

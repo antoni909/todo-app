@@ -1,7 +1,7 @@
-
 import { createContext, useState } from 'react'
 
-// 'existing users'
+const token = 'fakeWebToken'
+
 const dummies = [
   {
     password:'password',
@@ -23,8 +23,8 @@ const dummies = [
   }
 ]
 
-// creat auth/login context
 const UserContext = createContext({})
+
 export default function UserProvider(props){
   const defaults = {
     login,
@@ -49,8 +49,12 @@ export default function UserProvider(props){
     setGlobal(defaults)
   }
 
+  function isAuthorized(){}
+
   return ( 
-    <UserContext.Provider value={{global,setGlobal}}>
+    <UserContext.Provider 
+      value={{global,setGlobal}}
+    >
       {props.children}
     </UserContext.Provider>
   )
