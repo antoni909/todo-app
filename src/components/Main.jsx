@@ -4,6 +4,7 @@ import Container from '@mui/material/Container';
 
 import Header from './Header'
 import Todo from './Todo'
+import Login from './Login'
 import Footer from './Footer'
 
 function Main() {
@@ -24,6 +25,7 @@ function Main() {
                     <Container maxWidth="lg"align="center">
                       <Header />
                       <Todo />
+                      <Login />
                       <Footer />
                     </Container>
 
