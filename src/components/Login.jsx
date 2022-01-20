@@ -4,28 +4,28 @@ import { UserContext } from '../contexts/authContext'
 
 const Login = () => {
   const defaults = {username:'',password:''}
-
   const global = useContext(UserContext);
-  
   const [target, setTarget] = useState(defaults)
   
   function handleSubmit(e){
     e.preventDefault()
-    setTarget({...target, username: e.target.username.value, password: e.target.password.value})
+    setTarget({
+      ...target, 
+      username: e.target.username.value, 
+      password: e.target.password.value}
+    )
     global.login(target.username, target.password)
     setTarget({...defaults})
   }
-
-  const isAuthenticated = false
  
   return (
     <div>
       {
-        isAuthenticated
+        global.isAuthenticated
         ?<>
           <h1>Logout Component</h1>
           <button 
-            onClick={()=>(console.log('run global.logout()'))}
+            onClick={()=> global.logout()}
             type="submit">
           Logout
           </button>

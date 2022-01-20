@@ -1,21 +1,18 @@
-
+import { useContext } from 'react'
+import { UserContext } from '../contexts/authContext'
 import AuthFail from './AuthFail'
 
-const Auth = (props) => {
-  // useContext <--- UserContext
-  // check globals if authed
-  // is the user authenticated and authorized? render children : null
- 
+const Auth = ({children, capability}) => {
+  const global = useContext(UserContext);
   // check their capabilities
-  const isAuthenticated = true
-  const isAuthorized = true
-
+  console.log('AUTHORIZED?',global.isAuthorized(capability))
   return (
     <div>
       <h1>Auth Component</h1>
+      <hr />
       <>
-        {(isAuthenticated && isAuthorized)
-          ? props.children
+        {(global.isAuthenticated && global.isAuthorized(capability))
+          ? children
           : <AuthFail /> 
         }
       </>

@@ -8,7 +8,9 @@
 
 ### ✨ [Demo](https://antoni909.github.io/todo-app/)
 
-![UML]()
+![implementing react router and local storage feature](src/assets/todo-router.jpg)
+![implementing authentication and authorization](src/assets/todo-auth.jpg)
+
 ## Business Requirements
 
 - resources used:

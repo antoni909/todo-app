@@ -14,7 +14,7 @@ const Home = () => {
         
         <Login />
 
-        <Auth capability='administrator'>
+        <Auth capability='delete'>
           <Main />
         </Auth>
 
