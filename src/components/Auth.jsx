@@ -15,6 +15,7 @@ const Auth = ({children, capability}) => {
 
     let isAuthed = global.isAuthenticated && global.isAuthorized(capability)
 
+    console.log('***',isAuthed)
   return (
     <div>
       <h1>Auth Component</h1>

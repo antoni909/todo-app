@@ -17,7 +17,6 @@ const Login = () => {
       username: e.target.username.value, 
       password: e.target.password.value}
     )
-    console.log(target.username,target.password)
     global.login(target.username, target.password)
     setTarget({...defaults})
   }
