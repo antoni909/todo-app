@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
 // import jwt from 'jsonwebtoken'
-
+// import cookies from react
 let token = ''
 let cookies = {}
 
@@ -31,36 +31,49 @@ export default function UserProvider({children}){
   const defaults = {
     login,
     logout,
-    isAuthorized,
+    isAuthorized: authorization,
+    curCapabilities: [],
     isAuthenticated: false,
     curUser: {}
   }
 
   const [global, setGlobal] = useState(defaults)
-
   function login(username, password){
+    console.log(setGlobal({...global,newProp: 'newprop'}))
     let validatedUser = {}
+    let caps =[]
     dummies.forEach( obj => {
-      if(username === obj.username && password === obj.password){return validatedUser = obj}
+      if(username === obj.username && password === obj.password){
+        caps = [...obj.capabilities]
+        validatedUser = obj
+      }
     })
+    console.log('**',caps, validatedUser)
 
     token = 'Header+Payload+Secret'
     cookies = {...cookies, token}
-
     setGlobal({
       ...global,
       isAuthenticated: true,
-      curUser: {...validatedUser} 
+      curUser: {...validatedUser},
+      curCapabilities: [...caps]
     })
+    console.log('***',global)
   }
 
   function logout(){
     setGlobal(defaults)
   }
 
-  function isAuthorized(capability){
-    // WIP authorization logic
-    return true
+// async function authorization(capability){
+//     console.log(global.curCapabilities)
+//     let isAuthed = global.curCapabilities.includes(capability)
+//     console.log(isAuthed)
+//     return true
+//   }
+
+  function authorization(capability){
+    return global.curCapabilities.includes(capability)
   }
 
   return ( 

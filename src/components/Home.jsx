@@ -1,22 +1,31 @@
 import UserProvider from "../contexts/authContext";
+import useStyles from "../hooks/useStyles";
+import Container from '@mui/material/Container';
+
 import Auth from "./Auth";
 import Login from "./Login";
 import Main from "./Main";
 
 const Home = () => {
+  const classes = useStyles()
   return(
-    <div>
+    <div>    
       <h1>Home Component</h1>
-      <p>Hold Basic States when user is Logged in and Logout Button</p>
-      <p>Render the login form when logged out</p>
-
       <UserProvider>
         
-        <Login />
+      <Container
+        align="center" 
+        className={classes.cardRoot}
+        maxWidth="lg"
+      >
+          <Login />
+          <br />
+          <hr />
+          <Auth capability='delete'>
+            <Main />
+          </Auth>
+      </Container>
 
-        <Auth capability='delete'>
-          <Main />
-        </Auth>
 
       </UserProvider>
     </div>

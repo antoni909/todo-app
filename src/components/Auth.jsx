@@ -4,14 +4,30 @@ import AuthFail from './AuthFail'
 
 const Auth = ({children, capability}) => {
   const global = useContext(UserContext);
-  // check their capabilities
-  console.log('AUTHORIZED?',global.isAuthorized(capability))
+
+  // global.isAuthenticated && global.isAuthorized(capability).then((result)=>{
+  //   console.log(result)
+  // })
+  
+  // let isAuthed = (global.isAuthenticated)
+  //   ? global.isAuthorized(capability)
+  //   : true
+
+    let isAuthed = global.isAuthenticated && global.isAuthorized(capability)
+
   return (
     <div>
       <h1>Auth Component</h1>
-      <hr />
       <>
-        {(global.isAuthenticated && global.isAuthorized(capability))
+        {(global.isAuthenticated)
+        ?<p>
+          {`Welcome, ${global.isAuthenticated && global.curUser.username}`}👋 
+          </p>
+        :<p>Welcome</p>
+        }
+      </>
+      <>
+        {(isAuthed)
           ? children
           : <AuthFail /> 
         }

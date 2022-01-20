@@ -1,10 +1,13 @@
 
 import { useState, useContext } from 'react'
 import { UserContext } from '../contexts/authContext'
+import useStyles from '../hooks/useStyles'
 
 const Login = () => {
   const defaults = {username:'',password:''}
   const global = useContext(UserContext);
+  const classes = useStyles()
+
   const [target, setTarget] = useState(defaults)
   
   function handleSubmit(e){
@@ -14,6 +17,7 @@ const Login = () => {
       username: e.target.username.value, 
       password: e.target.password.value}
     )
+    console.log(target.username,target.password)
     global.login(target.username, target.password)
     setTarget({...defaults})
   }
@@ -24,7 +28,8 @@ const Login = () => {
         global.isAuthenticated
         ?<>
           <h1>Logout Component</h1>
-          <button 
+          <button
+            className={classes.button} 
             onClick={()=> global.logout()}
             type="submit">
           Logout
@@ -32,9 +37,11 @@ const Login = () => {
          </>
         :<>
             <h1>Login Component</h1>
-            <form onSubmit={handleSubmit}>
+            <form 
+              onSubmit={handleSubmit}
+            >
               <label>
-                Email or username
+                Username
                 <input
                   name="username"
                   type="text"
@@ -43,7 +50,7 @@ const Login = () => {
                 />
               </label>
               <label>
-                Password
+                Password 
                 <input
                   name="password"
                   type="password"
@@ -51,7 +58,10 @@ const Login = () => {
                   onChange={(e)=> setTarget({...target,[e.target.name]: e.target.value})}
                 />
               </label>
-              <button type="submit">Login</button>
+              <button 
+                className={classes.button} 
+                type="submit"
+              >Login</button>
             </form>
           </>
       }
