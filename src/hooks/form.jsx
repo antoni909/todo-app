@@ -6,6 +6,8 @@ const useForm = (cb) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    console.log('handle submit', e)
+    console.log('handle submit vals', values)
     cb(values)
   }
 

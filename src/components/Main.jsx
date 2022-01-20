@@ -1,4 +1,6 @@
+import { useContext } from 'react'
 import { SettingsContext } from '../contexts/settings'
+import { UserContext } from '../contexts/authContext'
 import { useLocalStorage } from '../hooks/localStorage'
 import Container from '@mui/material/Container';
 
@@ -7,7 +9,7 @@ import Todo from './Todo'
 import Footer from './Footer'
 
 function Main() {
-
+  const global = useContext(UserContext);
   const [settings, setSettings] = useLocalStorage('defaults',{
     completedTodos: false, 
     maxDisplay:3,
@@ -19,14 +21,14 @@ function Main() {
   })
 
   return (
-            <SettingsContext.Provider value={{settings, setSettings}} >
-
-                    <Container maxWidth="lg"align="center">
-                      <Header />
-                      <Todo />
-                      <Footer />
-                    </Container>
-
+            <SettingsContext.Provider 
+              value={{settings, setSettings}} 
+            >
+              <Container maxWidth="lg"align="center">
+                <Header />
+                <Todo />
+                <Footer />
+              </Container>
             </SettingsContext.Provider>
   );
 }
