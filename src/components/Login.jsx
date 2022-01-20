@@ -1,15 +1,19 @@
-// import useForm from '../../src/hooks/form'
-import { useState } from 'react'
+
+import { useState, useContext } from 'react'
+import { UserContext } from '../contexts/authContext'
 
 const Login = () => {
-  // const [login, logout ] = useContext(UserContext)
   const defaults = {username:'',password:''}
+
+  const global = useContext(UserContext);
+  console.log('LOGIN',global)
+  
   const [target, setTarget] = useState(defaults)
   
   function handleSubmit(e){
     e.preventDefault()
-    console.log(e.form)
-    // login(target.username, target.password)
+    setTarget({...target, username: e.target.username.value, password: e.target.password.value})
+    global.login(target.username, target.password)
     setTarget({...defaults})
   }
 
@@ -52,7 +56,6 @@ const Login = () => {
             </form>
           </>
       }
-
     </div>
   )
 }

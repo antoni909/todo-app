@@ -11,10 +11,13 @@ const Home = () => {
       <p>Render the login form when logged out</p>
 
       <UserProvider>
+        
         <Login />
+
         <Auth capability='administrator'>
           <Main />
         </Auth>
+
       </UserProvider>
     </div>
   )

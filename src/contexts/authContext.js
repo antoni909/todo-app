@@ -1,29 +1,29 @@
 import { createContext, useState } from 'react'
 
-const token = 'fakeWebToken'
-
+let token = ''
+let cookies = {}
 const dummies = [
   {
     password:'password',
-    name:'Administrator',
+    username:'user-admin',
     role:'admin',
     capabilities:['create','read','update','delete']
   },
   {
     password: 'password',
-    name: 'Editor',
+    username: 'user-editor',
     role: 'editor',
     capabilities: ['read', 'update']
   },
   {
     password: 'password',
-    name: 'Writer',
+    username: 'user-writer',
     role: 'writer',
     capabilities: ['create']
   }
 ]
 
-const UserContext = createContext({})
+export const UserContext = createContext()
 
 export default function UserProvider(props){
   const defaults = {
@@ -31,16 +31,24 @@ export default function UserProvider(props){
     logout,
     isAuthenticated: false,
     isAuthorized: false,
-    user: {capabilities: []}
+    curUser: {}
   }
 
   const [global, setGlobal] = useState(defaults)
-  
+
   function login(username, password){
     console.log('context: ',username,password)
-    // search dummies and return that valid user
-    // if is valid user, give token
-    // save to react cookies, how to?
+
+    // let validatedUser = {}
+    // dummies.forEach( obj => {
+    //   if(username === obj.username && password === obj.password) { return validatedUser = obj}
+    // } )
+
+    // if(validatedUser){ token = 'Header+Payload+Secret'}
+
+    // cookies = {...cookies, token}
+
+    // setGlobal({...global,isAuthenticated: true,curUser: {validatedUser} })
   }
 
   function logout(){
@@ -49,12 +57,12 @@ export default function UserProvider(props){
     setGlobal(defaults)
   }
 
-  function isAuthorized(){}
+  function isAuthorized(capability){
+    console.log('isAuthorized',capability)
+  }
 
   return ( 
-    <UserContext.Provider 
-      value={{global,setGlobal}}
-    >
+    <UserContext.Provider value={global}>
       {props.children}
     </UserContext.Provider>
   )

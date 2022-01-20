@@ -8,7 +8,7 @@ const Auth = (props) => {
  
   // check their capabilities
   const isAuthenticated = true
-  const isAuthorized = false
+  const isAuthorized = true
 
   return (
     <div>
