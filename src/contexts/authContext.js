@@ -37,18 +37,21 @@ export default function UserProvider(props){
   const [global, setGlobal] = useState(defaults)
 
   function login(username, password){
-    console.log('context: ',username,password)
 
-    // let validatedUser = {}
-    // dummies.forEach( obj => {
-    //   if(username === obj.username && password === obj.password) { return validatedUser = obj}
-    // } )
+    let validatedUser = {}
 
-    // if(validatedUser){ token = 'Header+Payload+Secret'}
+    dummies.forEach( obj => {
+      console.log(`${username} === ${obj.username} && ${password} === ${obj.password}`)
+      console.log(username === obj.username && password === obj.password)
+      if(username === obj.username && password === obj.password) { return validatedUser = obj}
+    } )
 
-    // cookies = {...cookies, token}
+    if(validatedUser){ token = 'Header+Payload+Secret'}
 
-    // setGlobal({...global,isAuthenticated: true,curUser: {validatedUser} })
+    cookies = {...cookies, token}
+
+    setGlobal({...global,isAuthenticated: true,curUser: {validatedUser} })
+    console.log(global.user)
   }
 
   function logout(){

@@ -6,7 +6,6 @@ const Login = () => {
   const defaults = {username:'',password:''}
 
   const global = useContext(UserContext);
-  console.log('LOGIN',global)
   
   const [target, setTarget] = useState(defaults)
   
