@@ -11,7 +11,7 @@ const Auth = ({children, capability}) => {
     <div>
         {(isAuthed)
           ? <>
-              <h1>Hello {global.curUser.username}</h1>
+              <h1>Hello {global.curUser.username} 👋 </h1>
               {children}
             </>
           : null 
