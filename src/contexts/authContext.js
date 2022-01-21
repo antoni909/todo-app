@@ -34,6 +34,8 @@ export default function UserProvider({children}){
   const [curUser, setCurUser] = useState({})
   const [curCapabilities, setCurCapabilities] = useState([])
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [role, setRole] = useState('')
+  const [hasFailed, setHasFailed] = useState(false)
 
   function login(username, password){
     dummies.forEach( obj => {
@@ -41,7 +43,8 @@ export default function UserProvider({children}){
         setIsAuthenticated(true)
         setCurUser({...obj})
         setCurCapabilities([...obj.capabilities])
-      }
+        setRole(obj.role)
+      }else{ setHasFailed(true) }
     })
     token = `Header+Payload+${secret}`
     cookies = {...cookies, token}
@@ -55,13 +58,21 @@ export default function UserProvider({children}){
     return curCapabilities.includes(capability)
   }
 
+  function hasRole(roleOf){
+    if(curUser){
+      return role.includes(roleOf)
+    }
+  }
+
   const global = {
     login,
     logout,
     isAuthorized,
+    hasFailed,
+    hasRole,
     curCapabilities,
     isAuthenticated,
-    curUser
+    curUser,
   }
 
   return ( 
