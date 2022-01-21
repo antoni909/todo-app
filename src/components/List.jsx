@@ -14,7 +14,6 @@ const List = () => {
   
   function deleteItem(id){
     const filtered = settings.list.filter( item => item.id !== id )
-    console.log('new items: ',filtered)
     setSettings({
       ...settings, 
       list: [...filtered]

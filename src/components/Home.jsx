@@ -21,11 +21,17 @@ const Home = () => {
           <Login />
           <br />
           <hr />
+          <Auth capability='create'>
+            <Main />
+          </Auth>
+          <Auth capability='update'>
+            <Main />
+          </Auth>
           <Auth capability='delete'>
             <Main />
           </Auth>
+          
       </Container>
-
 
       </UserProvider>
     </div>

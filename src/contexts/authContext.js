@@ -1,9 +1,10 @@
 import { createContext, useState } from 'react'
 // import jwt from 'jsonwebtoken'
 // import cookies from react
+
 let token = ''
 let cookies = {}
-let secret = ':('
+let secret = '...:('
 
 const dummies = [
   {
@@ -42,10 +43,8 @@ export default function UserProvider({children}){
         setCurCapabilities([...obj.capabilities])
       }
     })
-
     token = `Header+Payload+${secret}`
     cookies = {...cookies, token}
-
   }
 
   function logout(){
