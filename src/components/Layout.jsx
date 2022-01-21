@@ -11,9 +11,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import { HomeRounded, FormatListNumbered, ErrorOutline } from '@mui/icons-material';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-
 const Layout = ({children}) => {
-
   const classes = useStyles()
   // look into MenuItem for rendering Link components
   // https://mui.com/components/menus/
@@ -25,9 +23,9 @@ const Layout = ({children}) => {
       path: <Link style={{ textDecoration: 'none' }} to="/">Home</Link>,
     },
     {
-      text: 'Main',
+      text: 'Sample Todo',
       icon: <FormatListNumbered color="secondary"/>,
-      path: <Link style={{ textDecoration: 'none' }} to="/todos">Todos</Link>,
+      path: <Link style={{ textDecoration: 'none' }} to="/todos">Sample Todos</Link>,
     },
     {
       text: 'Settings',
@@ -76,9 +74,13 @@ const Layout = ({children}) => {
       </Drawer>
       <div className={classes.page}>
         <div className={classes.toolbar}></div>
-        {children}
+        <div>
+          {children}
+        </div>
         <br />
+
         <Outlet />
+
       </div>
 
     </div>
