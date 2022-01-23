@@ -1,8 +1,8 @@
 [![pages-build-deployment](https://github.com/antoni909/todo-app/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/antoni909/todo-app/actions/workflows/pages/pages-build-deployment)
 
-<h1 align="center"> Welcome to Todo app 👋 </h1>
+<h1 align="center"> Welcome to Todo App 👋 </h1>
 
-> A Web Application for securely managing a To Do List
+> A Web Application for Securely managing a Todo List
 
 ### 🏠 [Homepage](https://github.com/antoni909/todo-app)
 
@@ -10,6 +10,7 @@
 
 ![implementing react router and local storage feature](src/assets/todo-router.jpg)
 ![implementing authentication and authorization](src/assets/todo-auth.jpg)
+![connecting to live servers for login, authorization, and data access](#blank)
 
 ## Business Requirements
 
@@ -46,7 +47,7 @@ User Login & Permissions delivered to the application using Context
 Local Storage / Cookies for storing login status
 Local Storage / Cookies for storing user preferences
 Superagent or Axios for performing API Requests
-React Bootstrap for styling
+Material UI
 Test Driven Development, using Jest
 Tests will be runnable locally
 Deployment to cloud provider

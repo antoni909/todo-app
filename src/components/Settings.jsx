@@ -1,5 +1,5 @@
 import useStyles from '../hooks/useStyles'
-import {useLocalStorage} from '../hooks/localStorage'
+import {useLocalStorage} from '../hooks/useLocalStorage'
 
 import Button from '@mui/material/Button';
 import Switch from '@mui/material/Switch';

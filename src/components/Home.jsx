@@ -10,8 +10,8 @@ const Home = () => {
   const classes = useStyles()
   return(
     <div>    
-      <h1>Home Component</h1>
       <UserProvider>
+      <h1>Home Component</h1>
         
       <Container
         align="center" 
