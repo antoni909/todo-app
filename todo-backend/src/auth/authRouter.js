@@ -1,5 +1,6 @@
 const express = require('express')
 const authRouter = express.Router()
+const basic = require('./middleware/basic')
 
 const registerUser = async (req,res) => {
   try{
@@ -12,16 +13,15 @@ const registerUser = async (req,res) => {
 
 const loginUser = async (req,res) => {
   try{
-    // 1. authorize user
-    // 2. login user
-    const user = 'authorized and able to login'
-    res.status(200).json(user)
+    user = req.user
+    console.log(user)
+    res.status(200).json({user})
   }catch(e){
     console.log('e: ',e)
   }
 }
 
 authRouter.post('/signup',registerUser)
-authRouter.post('/login',loginUser)
+authRouter.post('/login',basic,loginUser)
 
 module.exports = authRouter;

@@ -7,6 +7,7 @@ const authRouter = require('./auth/authRouter')
 app.use(express.json())
 
 app.get('/', greetUser);
+app.use(authRouter);
 
 app.use('*',notFoundHandler)
 app.use(serverErrorHandler)
