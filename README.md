@@ -8,8 +8,8 @@
 
 ### ✨ [Demo](https://antoni909.github.io/todo-app/)
 
-![implementing react router and local storage feature](src/assets/todo-router.jpg)
-![implementing authentication and authorization](src/assets/todo-auth.jpg)
+![implementing react router and local storage feature](todo-frontend/src/assets/todo-router.jpg)
+![implementing authentication and authorization](todo-frontend/src/assets/todo-auth.jpg)
 ![connecting to live servers for login, authorization, and data access](#blank)
 
 ## Business Requirements
